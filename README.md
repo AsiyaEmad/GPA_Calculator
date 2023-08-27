@@ -10,8 +10,6 @@ The application asks the student to enter his numeric grade of each course and t
 
 -You should store the letter grades of all student’s courses in an array. 
 
-## You will find the code in 'GPA_Calculator_Code' file
-
 -The final grade of the student should be also calculated
 
 ## Sample I/O :
@@ -19,3 +17,5 @@ The application asks the student to enter his numeric grade of each course and t
 Enter the course grade (-1 to end): 93
 
 Enter the course credit hours: 3
+
+## You will find the code in 'GPA_Calculator_Code' file
