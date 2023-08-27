@@ -1,0 +1,153 @@
+using System.Collections;
+ class Program
+{
+    
+    static void Main(string[] args)
+    {
+
+        // To prove that this is my own project
+       Console.WriteLine("Asiya Emad Mohammed / 2051711621" );
+       
+       //declare and initialize the varible of Total Course grade
+       double Total_Course_grade=0.0;
+       
+       //declare and initialize the varible that sum Total credit hours
+       int Total_credit_hours=0;
+       
+       //declare and initialize the varible that calculate the total GBA
+       double GPA=0.0;
+       
+       //declare and initialize the variable that sets the gpa point of an cours
+       double GPA_points= 0.0;
+       
+       //declare and initialize the arry that containing the gpa letter of an each course
+       ArrayList GPA_char = new ArrayList();
+       
+       //declare and initialize the variable that containing final grade assessment 
+       string Final="";
+
+        //loop to repeat the Question to get more courses until the user enter -1
+       while (true) {
+           
+           //ask user about the course grade
+            Console.Write("Enter the course grade (-1 to end):");
+            
+            // save what the user entered in the "course grade " variable and convert the data type from string to double
+            double Course_grade = Convert.ToDouble(Console.ReadLine());
+
+           // if the user didnt entered -1 do -->
+           if (Course_grade != -1)
+           {
+               
+             //ask user about the course grade
+             Console.Write("Enter the course credit hours:");
+              
+              // save what the user entered in the "course grade " variable and convert the data  type from string to integr 
+              int credit_hours = Convert.ToInt32(Console.ReadLine());
+
+              // if and else if statments to set the GBA points value and to save the gpa letter of an cours in the Array
+              
+              if (Course_grade >= 90)
+              {
+                  GPA_points = 4.0;
+                  GPA_char.Add("A");
+              }
+              else if (Course_grade <= 89 && Course_grade >= 82)
+              {
+                GPA_points = 3.5;
+                GPA_char.Add("B+");
+              }
+              else if (Course_grade <= 81  &&  Course_grade >= 74)
+              {
+                GPA_points = 3.0;
+                GPA_char.Add("B");
+              }
+              else if (Course_grade <= 73  &&  Course_grade >= 66)
+              {
+                GPA_points = 2.5;
+                GPA_char.Add("C+");  
+              }
+              else if (Course_grade <= 65  &&  Course_grade >= 58)
+              {
+                GPA_points = 2.0;
+                GPA_char.Add("C");
+              }
+              else if (Course_grade <= 57  &&  Course_grade >= 50)
+              {
+                GPA_points = 1.5;
+                GPA_char.Add("D");  
+              }
+              else if (Course_grade <50)
+              {
+                GPA_points = 0.0;
+                GPA_char.Add("F");  
+              }
+              
+              // to calculate the total grades and multiply GBA course point by the course hours      "a main point to calculate the GPA" 
+              Total_Course_grade=Total_Course_grade + ((GPA_points)*(credit_hours));
+              
+              //to calculate the total credit hours "a process to calculate the GPA"
+              Total_credit_hours =Total_credit_hours + credit_hours;  
+           }
+
+           
+           // if the user entered -1 do -->
+           else if (Course_grade == -1)
+           {
+
+//calculate the GPA "by devided (GBA course point * the course hours) / total courses hours"
+             GPA = (Total_Course_grade) / (Total_credit_hours);
+             GPA =Convert.ToDouble(GPA);
+
+            
+            // if and else if statments to set the final grade assessment
+            if (GPA >= 3.67)
+            {
+                 Final = "Excellent";
+            }
+            else if (GPA <= 3.66  &&  GPA > 3.0)
+            {
+                 Final = "Very Good";
+            }
+            else if (GPA <= 3.0  &&  GPA > 2.33)
+            {
+                 Final = "Good";
+            }
+            else if (GPA <= 2.33  &&  GPA >= 2.0)
+            {
+                 Final = "Fair";
+            }
+            else if (GPA < 2)
+            {
+                Final = "Fall"; 
+            }
+
+
+            // print to user the gpa letter of each single course
+            Console.Write("The grades of your courses are : " );
+            
+            // loop to print the all elements in the array
+            for (int i =0; i < GPA_char.Count ; i++)
+            {
+                Console.Write( GPA_char[i] + ", " );
+            }
+            
+            Console.WriteLine(" " );
+            
+            // to print to user the toutal number of courses hours
+            Console.WriteLine("The total number of credit hours is: " + Total_credit_hours);
+            
+            // to print to user the final GPA rounded to the nearest hundredth
+            Console.WriteLine("Your GPA is : " + Math.Round(GPA, 2) );
+            
+            
+            // to print to user the final grades assessment
+            Console.WriteLine("Your final grade is : " + Final);
+            
+            // to end the while loop and end the program
+            break;
+
+           }
+        }
+  }
+ }
